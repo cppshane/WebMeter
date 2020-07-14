@@ -1,6 +1,32 @@
 # WebMeter
 
-This repository is for storing some interesting WebGL animations I've come across to be used for background animations. Each animation has two folders, Interface and Template. The animation in Interface puts a GUI overlay so that you can actively play with settings. Template only contains the animation, so it can be used as a background. Template also contains a file called webmeter.js, which you can set to your desired settings.
+This repository is for storing some interesting WebGL animations I've come across to be used for background animations for web/desktop environments.
+
+Each animation has three folders:
+
+<b>Interface</b>
+
+The raw animation, straight from the source with GUI overlays to manipulate the animation settings.
+
+
+<b>Lively</b>
+
+The animation configured to run as a background in <a href="https://github.com/rocksdanister/lively">Lively</a>.
+
+1. Open Lively
+2. Go to "Type" tab
+3. Under "Web" click the HTML button
+4. Navigate to the animation folder you want, and into the Lively folder
+5. Select index.html
+6. Click "Customize Wallpaper" to adjust settings within the Lively app
+
+<b>Web</b>
+
+This repository is also hosted as a Github static page, so you can easily set an iframe as the background on your website, specifying the settings as URL parameters, like so:
+
+<code>https://cppshane.github.io/WebMeter/TheSpirit/Web/index.html#amount=131k&motionBlurQuality=medium&speed=1.5</code>
+
+<b>Animation Sources</b>
 
 Particles - http://www.iamnop.com/particles-mrt/
 
