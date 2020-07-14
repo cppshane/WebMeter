@@ -1,0 +1,118 @@
+{
+    "particleAmt": {
+      "type": "dropdown",
+      "value": 3,
+      "text": "Particle Amount",
+      "items": [
+        "4k",
+        "8k",
+        "16k",
+        "32k",
+        "65k",
+        "131k",
+        "252k",
+        "524k",
+        "1m",
+        "2m",
+        "3m",
+        "4m"
+      ]
+    },
+    "baseColor": {
+      "text": "Base",
+      "type": "color",
+      "value": "#ffffff"
+    },
+    "fadeColor": {
+      "text": "Fade",
+      "type": "color",
+      "value": "#ffffff"
+    },
+    "bgColor": {
+      "text": "Background",
+      "type": "color",
+      "value": "#202020"
+    },
+    "speed": {
+      "max": 30,
+      "min": 0,
+      "tick": 51,
+      "text": "Speed",
+      "type": "slider",
+      "value": 10
+    },
+    "dieSpeed": {
+      "max": 50,
+      "min": 1,
+      "tick": 51,
+      "text": "dieSpeed",
+      "type": "slider",
+      "value": 15
+    },
+    "radius": {
+      "max": 300,
+      "min": 20,
+      "tick": 281,
+      "text": "Radius",
+      "type": "slider",
+      "value": 60
+    },
+    "curlSize": {
+      "max": 50,
+      "min": 1,
+      "tick": 50,
+      "text": "Curl",
+      "type": "slider",
+      "value": 20
+    },
+    "attraction": {
+      "max": 200,
+      "min": -200,
+      "tick": 401,
+      "text": "Attraction",
+      "type": "slider",
+      "value": 100
+    },
+    "shadow": {
+      "max": 100,
+      "min": 0,
+      "tick": 101,
+      "text": "Shadow",
+      "type": "slider",
+      "value": 45
+    },
+    "newParticle": {
+      "type": "checkbox",
+      "value": true,
+      "text": "New Particle"
+    },
+    "followMouse": {
+      "type": "checkbox",
+      "value": true,
+      "text": "Mouse"
+    },
+    "orbit": {
+      "type": "checkbox",
+      "value": false,
+      "text": "Click to Orbit"
+    },
+    "label1": {
+    "type": "label",
+    "value": "Post-Processing"
+    },
+    "fxaa": {
+      "type": "checkbox",
+      "value": true,
+      "text": "Anti-Aliasing"
+    },
+    "motionBlur": {
+      "type": "checkbox",
+      "value": false,
+      "text": "Motion Blur"
+    },
+    "bloom": {
+      "type": "checkbox",
+      "value": false,
+      "text": "Bloom"
+    }
+  }

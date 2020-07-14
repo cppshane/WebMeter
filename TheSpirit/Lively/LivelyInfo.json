@@ -1,0 +1,14 @@
+{
+  "AppVersion": "0.9.5.1",
+  "Title": "The Spirit",
+  "Thumbnail": "lively_t.jpg",
+  "Preview": "lively_p.gif",
+  "Desc": "WebGL smoke like particle simulation.",
+  "Author": "Edan Kwan",
+  "License": "see license.txt",
+  "Contact": "https://github.com/edankwan/The-Spirit",
+  "Type": 1,
+  "FileName": "index.html",
+  "Arguments": null,
+  "IsAbsolutePath": false
+}
