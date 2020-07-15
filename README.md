@@ -24,7 +24,7 @@ The animation configured to run as a background in <a href="https://github.com/r
 
 This repository is also hosted as a Github static page, so you can easily set an iframe as the background on your website, specifying the settings as URL parameters, like so:
 
-<code>https://cppshane.github.io/WebMeter/TheSpirit/Web/index.html#amount=131k&motionBlurQuality=medium&speed=1.5</code>
+<code>https://cppshane.github.io/WebMeter/TheSpirit/Web/index.html#amount=131k&motionBlurQuality=medium&speed=1.5&basecolor=000fff</code>
 
 <b>Animation Sources</b>
 
