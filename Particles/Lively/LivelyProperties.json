@@ -1,0 +1,28 @@
+{
+    "color": {
+      "text": "Color",
+      "type": "color",
+      "value": "#030311"
+    },
+    "background": {
+      "text": "Background",
+      "type": "color",
+      "value": "#000000"
+    },
+    "gravity": {
+      "max": 50,
+      "min": 0,
+      "tick": 1,
+      "text": "Gravity",
+      "type": "slider",
+      "value": 10
+    },
+    "alpha": {
+      "max": 100,
+      "min": 1,
+      "tick": 1,
+      "text": "Alpha",
+      "type": "slider",
+      "value": 15
+    }
+  }

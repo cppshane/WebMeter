@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WebGL GPU Particles - BETA!</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <div id="webgl-container">
+    <canvas id="webgl-canvas"></canvas>
+  </div>
+</body>
+
+<!-- <script type="text/javascript" src="js/vendor/gl-matrix.js"></script> -->
+<script type="text/javascript" src="js/vendor/dat.gui.min.js"></script>
+<script data-main="js/main" src="js/vendor/require.js"></script>
+
+<script type="text/javascript">
+
+  var livelyColor;
+  var livelyBackground;
+  var livelyGravity;
+  var livelyAlpha;
+
+  function livelyPropertyListener(name, val)
+  {
+    switch(name) {
+      case "color":
+        guiInterface("color","color", val);
+        livelyColor = val;
+        break;
+      case "background":
+        guiInterface("color","background", val);
+        livelyBackground = val;
+        break;
+      case "gravity":
+        guiInterface("text","gravity", val);
+        livelyGravity = val;
+        break;
+      case "alpha":
+        guiInterface("text","alpha", val / 100);
+        livelyAlpha = val;
+        break;
+    }
+  }
+  
+function guiInterface(type,target,val){
+    const evt = document.createEvent("HTMLEvents");
+    for(var el of document.querySelectorAll('.property-name')){
+      if(el.innerText == target){
+        if(type!=="combo")
+        {
+          const input = el.nextElementSibling.querySelector('input');
+          if(type=="text"){
+            input.value=val;
+            evt.initEvent("change", false, true);
+            input.dispatchEvent(evt);    
+          }
+          else if(type=="bool"){
+            if(input.checked!=val){
+              evt.initEvent("change", false, true);
+              input.dispatchEvent(evt);    
+            }
+          }
+          else{
+            input.value=val;
+            evt.initEvent("blur", false, true);
+            input.dispatchEvent(evt);
+          }
+        }
+        else if(type==="combo"){
+          const input = el.nextElementSibling.querySelector('select');
+          if(input.value!=val){
+            input.value=val;
+            evt.initEvent("change", false, true);
+            input.dispatchEvent(evt);
+          }
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .dg.ac, #stats {
+       display: none!important; 
+  }
+</style>
+</html>
