@@ -1,0 +1,110 @@
+{
+  "label1": {
+    "type": "label",
+    "value": "Light"
+  },
+  "lightAmbient": {
+    "text": "Ambient",
+    "type": "color",
+    "value": "#880066"
+  },
+  "lightDiffuse": {
+    "text": "Diffuse",
+    "type": "color",
+    "value": "#FF8800"
+  },
+  "count": {
+    "max": 5,
+    "min": 0,
+    "tick": 1,
+    "text": "Count",
+    "type": "slider",
+    "value": 2
+  },
+  "zOffset": {
+    "max": 500,
+    "min": 1,
+    "tick": 1,
+    "text": "Z Offset",
+    "type": "slider",
+    "value": 160
+  },
+  "label2": {
+      "type": "label",
+      "value": "Mesh"
+    },
+  "meshAmbient": {
+    "text": "Ambient",
+    "type": "color",
+    "value": "#555555"
+  },
+  "meshDiffuse": {
+    "text": "Diffuse",
+    "type": "color",
+    "value": "#FFFFFF"
+  },
+  "width": {
+    "max": 20,
+    "min": 1,
+    "tick": 1,
+    "text": "Width",
+    "type": "slider",
+    "value": 12
+  },
+  "height": {
+    "max": 20,
+    "min": 1,
+    "tick": 1,
+    "text": "Height",
+    "type": "slider",
+    "value": 12
+  },
+  "depth": {
+    "max": 50,
+    "min": 1,
+    "tick": 1,
+    "text": "Depth",
+    "type": "slider",
+    "value": 12
+  },
+  "segments": {
+    "max": 20,
+    "min": 1,
+    "tick": 1,
+    "text": "Segments",
+    "type": "slider",
+    "value": 16
+  },
+  "slices": {
+    "max": 20,
+    "min": 1,
+    "tick": 1,
+    "text": "Slices",
+    "type": "slider",
+    "value": 7
+  },
+  "xRange": {
+    "max": 10,
+    "min": 1,
+    "tick": 1,
+    "text": "X Range",
+    "type": "slider",
+    "value": 8
+  },
+  "yRange": {
+    "max": 10,
+    "min": 1,
+    "tick": 1,
+    "text": "Y Range",
+    "type": "slider",
+    "value": 1
+  },
+  "speed": {
+    "max": 100,
+    "min": 1,
+    "tick": 1,
+    "text": "Speed",
+    "type": "slider",
+    "value": 20
+  }
+}

@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+  <head>
+
+    <meta charset="utf-8"/>
+    <title>Flat Surface Shader</title>
+    <meta name="author" content="Matthew Wagerfield"/>
+    <meta name="keywords" content="flat,surface,shader,Float32Array"/>
+    <meta name="description" content="Simple, lightweight Flat Surface Shader for rendering lit triangles."/>
+    <meta property="og:description" content="Simple, lightweight Flat Surface Shader for rendering lit triangles."/>
+    <meta property="og:image" content="http://wagerfield.github.com/flat-surface-shader/assets/graphics/thumbnail.jpg"/>
+    <meta property="og:site_name" content="Flat Surface Shader"/>
+    <meta property="og:title" content="Flat Surface Shader"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="http://wagerfield.github.com/flat-surface-shader/"/>
+    <link rel="stylesheet" type="text/css" href="assets/styles/styles.css"/>
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-39594063-1', 'github.com');
+    ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+
+    <div id="container" class="container">
+      <div id="output" class="container">
+      </div>
+      <div id="vignette" class="overlay vignette">
+      </div>
+      <div id="noise" class="overlay noise">
+      </div>
+      <div id="ui" class="wrapper">
+        <header id="header" class="header">
+          <img class="logo" src="assets/graphics/logo.svg">
+          <h1>Flat Surface Shader</h1>
+        </header>
+        <article id="information" class="information">
+          <p>Admit it, 3D is cool. But, you know what's cooler? 2D.<br>I love WebGL, but unfortunately it doesn't work everywhere.</p>
+          <p>This lighting simulation can be configured to use either the 2D context of a canvas element or an array of SVG polygons to draw the triangles. It also utilises native Float32Arrays to store numerical data for highly optimised calculations.</p>
+          <p>This is a collaborative effort between<br><a href="http://matthew.wagerfield.com">Matthew Wagerfield</a> and <a href="http://www.behance.net/vanschneider">Tobias van Schneider</a> – a couple of pandas trying to make the web a more magical place.</p>
+        </article>
+        <footer id="footer" class="footer">
+          <a href="https://twitter.com/wagerfield" class="twitter-follow-button" data-show-count="false">Follow <span class="handle">@wagerfield</span></a> &amp;
+          <a href="https://twitter.com/schneidertobias" class="twitter-follow-button" data-show-count="false">Follow <span class="handle">@schneidertobias</span></a>
+        </footer>
+      </div>
+      <ul id="links" class="links">
+        <li><a class="download" href="https://raw.github.com/wagerfield/flat-surface-shader/master/deploy/fss.js" target="_blank">fss.js</a></li>
+        <li><a class="download" href="https://raw.github.com/wagerfield/flat-surface-shader/master/deploy/fss.min.js" target="_blank">fss.min.js</a></li>
+        <li><a class="source" href="https://github.com/wagerfield/flat-surface-shader" target="_blank">GitHub</a></li>
+        <li><a class="design" href="http://www.behance.net/gallery/Flat-Surface-Shader/7826469" target="_blank">Behance</a></li>
+      </ul>
+    </div>
+    <div id="controls" class="controls">
+    </div>
+
+    <script src="assets/scripts/libraries/prefixfree.min.js"></script>
+    <script src="assets/scripts/libraries/dat.gui.min.js"></script>
+    <script src="deploy/fss.min.js"></script>
+    <script src="assets/scripts/example.js"></script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+    <script type="text/javascript">
+    
+      function livelyPropertyListener(name, val)
+      {
+        switch(name) {
+          case "lightAmbient":
+            guiInterface("color","lightAmbient", val);
+            break;
+          case "lightDiffuse":
+            guiInterface("color","lightDiffuse", val);
+            break;
+          case "count":
+            guiInterface("text","count", val);
+            break;
+          case "zOffset":
+            guiInterface("text","zOffset", val);
+            break;
+          case "meshAmbient":
+            guiInterface("color","meshAmbient", val);
+            break;
+          case "meshDiffuse":
+            guiInterface("color","meshDiffuse", val);
+            break;
+          case "width":
+            guiInterface("text","width", val / 10);
+            break;
+          case "height":
+            guiInterface("text","height", val / 10);
+            break;
+          case "depth":
+            guiInterface("text","depth", val);
+            break;
+          case "segments":
+            guiInterface("text","segments", val);
+            break;
+          case "slices":
+            guiInterface("text","slices", val);
+            break;
+          case "xRange":
+            guiInterface("text","xRange", val / 10);
+            break;
+          case "yRange":
+            guiInterface("text","yRange", val / 10);
+            break;
+          case "speed":
+            guiInterface("text","speed", val / 10000);
+            break;
+        }
+      }
+      
+    function guiInterface(type,target,val){
+        const evt = document.createEvent("HTMLEvents");
+        for(var el of document.querySelectorAll('.property-name')){
+          if(el.innerText == target){
+            if(type!=="combo")
+            {
+              const input = el.nextElementSibling.querySelector('input');
+              if(type=="text"){
+                input.value=val;
+                evt.initEvent("change", false, true);
+                input.dispatchEvent(evt);    
+              }
+              else if(type=="bool"){
+                if(input.checked!=val){
+                  evt.initEvent("change", false, true);
+                  input.dispatchEvent(evt);    
+                }
+              }
+              else{
+                input.value=val;
+                evt.initEvent("blur", false, true);
+                input.dispatchEvent(evt);
+              }
+            }
+            else if(type==="combo"){
+              const input = el.nextElementSibling.querySelector('select');
+              if(input.value!=val){
+                input.value=val;
+                evt.initEvent("change", false, true);
+                input.dispatchEvent(evt);
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      #controls, #ui, #links {
+           display: none!important; 
+      }
+    </style>
+  </body>
+</html>

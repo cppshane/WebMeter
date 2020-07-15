@@ -46,8 +46,6 @@ if (params.bloom) webmeterBloom = (params.bloom === "true");
 if (params.bloomradius) webmeterBloomRadius = (params.bloomradius === "true");
 if (params.bloomamount) webmeterBloomAmount = params.bloomamount;
 
-console.log(params.speed);
-
 function getAllUrlParams(url) {
   var hash = window.location.hash.substr(1);
 
