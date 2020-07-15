@@ -30,4 +30,12 @@ This repository is also hosted as a Github static page, so you can easily set an
 
 Particles - http://www.iamnop.com/particles-mrt/
 
+![Video Sample](https://s7.gifyu.com/images/particlesdemo.gif)
+
 TheSpirit - http://edankwan.com/experiments/the-spirit/
+
+![Video Sample](https://s7.gifyu.com/images/thespiritdemosmall.gif)
+
+FlatSurfaceShader - https://github.com/wagerfield/flat-surface-shader
+
+![Video Sample](https://s7.gifyu.com/images/flatsurfaceshaderdemosmall.gif)
