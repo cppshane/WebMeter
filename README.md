@@ -36,6 +36,6 @@ TheSpirit - http://edankwan.com/experiments/the-spirit/
 
 ![Video Sample](https://s7.gifyu.com/images/thespiritdemosmall.gif)
 
-FlatSurfaceShader - https://github.com/wagerfield/flat-surface-shader
+FlatSurfaceShader - http://matthew.wagerfield.com/flat-surface-shader/
 
 ![Video Sample](https://s7.gifyu.com/images/flatsurfaceshaderdemosmall.gif)
