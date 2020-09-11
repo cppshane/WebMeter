@@ -1,5 +1,7 @@
 (function(){
 
+  var mousePosition;
+
   //------------------------------
   // Mesh Properties
   //------------------------------
@@ -280,12 +282,19 @@
       FSS.Vector3.multiplyScalar(light.force, F);
 
       // Update the light position
-      FSS.Vector3.set(light.acceleration);
+      /*FSS.Vector3.set(light.acceleration);
       FSS.Vector3.add(light.acceleration, light.force);
       FSS.Vector3.add(light.velocity, light.acceleration);
       FSS.Vector3.multiplyScalar(light.velocity, LIGHT.dampening);
       FSS.Vector3.limit(light.velocity, LIGHT.minLimit, LIGHT.maxLimit);
-      FSS.Vector3.add(light.position, light.velocity);
+      FSS.Vector3.add(light.position, light.velocity);*/
+
+      if (mousePosition !== undefined) {
+        FSS.Vector3.setX(light.position, mousePosition.x);
+        FSS.Vector3.setY(light.position, renderer.height - mousePosition.y);
+
+        FSS.Vector3.subtract(light.position, center);
+      }
     }
 
     // Animate Vertices
@@ -317,7 +326,7 @@
         ly = light.position[1];
         switch(RENDER.renderer) {
           case CANVAS:
-            renderer.context.lineWidth = 0.5;
+            /*renderer.context.lineWidth = 0.5;
             renderer.context.beginPath();
             renderer.context.arc(lx, ly, 10, 0, Math.PIM2);
             renderer.context.strokeStyle = light.ambientHex;
@@ -325,7 +334,7 @@
             renderer.context.beginPath();
             renderer.context.arc(lx, ly, 4, 0, Math.PIM2);
             renderer.context.fillStyle = light.diffuseHex;
-            renderer.context.fill();
+            renderer.context.fill();*/
             break;
           case SVG:
             lx += renderer.halfWidth;
@@ -471,6 +480,8 @@
   function onMouseMove(event) {
     FSS.Vector3.set(attractor, event.x, renderer.height - event.y);
     FSS.Vector3.subtract(attractor, center);
+
+    mousePosition = event;
   }
 
   function onWindowResize(event) {
